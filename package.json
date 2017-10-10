@@ -1,0 +1,14 @@
+{
+  "name": "ourpackage",
+  "version": "1.0.0",
+  "description": "making some charts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dank"
+  ],
+  "author": "daniel",
+  "license": "ISC"
+}
