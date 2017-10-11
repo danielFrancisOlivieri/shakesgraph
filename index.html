@@ -25,6 +25,13 @@
 
 <style>
 
+body, html{
+  height:100%;
+  padding:0;
+  margin:0;
+    background:#2274A5;//is this what you want?
+}
+
 #home
 {
   background-image: url("https://raw.githubusercontent.com/danielFrancisOlivieri/shakesgraph/master/macbethFinal.png");
@@ -142,8 +149,9 @@ h1
           <li class="active"><a href="#home"><span>Home</span></a></li>
           <li><a href="#section-1"><span>Color</span></a></li>
           <li><a href="#section-2"><span>Deaths</span></a></li>
-          <li><a href="#section-3"><span> Word Count </span></a></li>
-          <li><a href="#section-4"><span> Macbeth Lines </span></a></li>
+          <li><a href="#section-3"><span>Word Count</span></a></li>
+          <li><a href="#section-4"><span>Macbeth Lines</span></a></li>
+         <li><a href="#section-5"><span>Lear Lines </span></a></li>
 
         </ul>
       </nav>
@@ -159,7 +167,7 @@ h1
       </section>
 
       <section id="section-1">
-
+<br>
   <h1> Colors Mentioned in Macbeth </h1>
 
             <div class = "ct-chart" id = "colorChart"> </div>
@@ -185,13 +193,20 @@ h1
 
       <section id="section-4">
         <br>
-  <h1> Macbeth Characters by Line Number </h1>
+  <h1> Number of Lines </h1>
 
 <div class = "ct-chart" id = "macbethLines"> </div>
 
       </section>
 
-    </main>
+      <section id="section-5">
+        <br>
+  <h1> Number of Lines </h1>
+
+<div class = "ct-chart" id = "learLines"> </div>
+
+      </section>
+
 
     <ul id="demos-nav">
       <li><a href="https://danielfrancisolivieri.github.io/Jabberwocky/" target="_blank">Jabberwocky</a></li>
@@ -221,6 +236,19 @@ Ross: 135
 Banquo: 113
 King: 70
 Lennox: 70
+
+Lear
+
+Lear: 749
+Edgar: 392
+
+Kent: 368
+Gloucester: 338
+Edmund: 307
+Fool: 227
+Gonerill: 199
+Regan: 190
+Cordelia: 117
 
 */
 
@@ -261,6 +289,16 @@ seriesBarDistance: 52,
 
 });
 
+// Lear characters by word count
+new Chartist.Bar('#learLines', {
+  labels: ["Lear", "Edgar", "Kent", "Gloucester", "Edmund", "Fool", "Gonerill", "Regan", "Cordelia" ],
+  series: [[749, 392, 368, 338, 307, 227, 199, 190, 117 ]]
+},
+{
+seriesBarDistance: 52,
+
+});
+
 
 // color charts
     new Chartist.Pie('#colorChart', {
@@ -271,15 +309,9 @@ seriesBarDistance: 52,
   showLabel: true
 });
 
-/*
 
-  Most quoted characters
-  most common words we use
-  blood
-
-
-*/
     </script>
 
+</main>
   </body>
 </html>
