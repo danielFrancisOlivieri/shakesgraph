@@ -109,6 +109,11 @@ h1
   background-color: #FFDB0F;
 }
 
+#section-6
+{
+  background-color: #D84587;
+}
+
 .ct-label .ct-slice-pie {
   color: #56A3A6;
 }
@@ -151,7 +156,8 @@ h1
           <li><a href="#section-2"><span>Deaths</span></a></li>
           <li><a href="#section-3"><span>Word Count</span></a></li>
           <li><a href="#section-4"><span>Macbeth Lines</span></a></li>
-         <li><a href="#section-5"><span>Lear Lines </span></a></li>
+         <li><a href="#section-5"><span>Lear Lines</span></a></li>
+         <li><a href="#section-6"><span>Exits</span></a></li>
 
         </ul>
       </nav>
@@ -204,6 +210,14 @@ h1
   <h1> Number of Lines </h1>
 
 <div class = "ct-chart" id = "learLines"> </div>
+
+      </section>
+
+      <section id="section-6">
+        <br>
+  <h1> Exits While Pursued by a Bear </h1>
+
+<div class = "ct-chart" id = "exits"> </div>
 
       </section>
 
@@ -266,6 +280,16 @@ Cordelia: 117
       },
       {
  seriesBarDistance: 52,
+
+});
+
+// Exits pursued by a Bear
+new Chartist.Bar('#exits', {
+  labels: ["Romeo and Juliet", "Hamlet", "Othello", "Macbeth", "A Winter's Tale", "Antony and Cleopatra", "Julius Caesar", "Lear", "Titus Andronicus", "Coriolanus", "Timon of Athens" ],
+  series: [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]]
+},
+{
+seriesBarDistance: 52,
 
 });
 
