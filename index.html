@@ -27,7 +27,7 @@
 
 #home
 {
-  background-image: url("macbethFinal.png");
+  background-image: url("https://raw.githubusercontent.com/danielFrancisOlivieri/shakesgraph/master/macbethFinal.png");
 }
 
 section
@@ -90,6 +90,47 @@ h3
 
 }
 
+h1
+{
+
+    -webkit-text-stroke-width: 1px;
+       -webkit-text-stroke-color: black;
+}
+
+#section-4
+{
+  background-color: #FFDB0F;
+}
+
+.ct-label .ct-slice-pie {
+  color: #56A3A6;
+}
+
+.ct-series-a .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: #000000;
+}
+
+.ct-series-b .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: #50B256;
+}
+
+.ct-series-c .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: #BF211E;
+}
+
+.ct-series-d .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: #E9CE2C;
+}
+
+.ct-series-e .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: #ffffff;
+}
+
 </style>
 
   <body>
@@ -99,9 +140,10 @@ h3
       <nav>
         <ul>
           <li class="active"><a href="#home"><span>Home</span></a></li>
-          <li><a href="#section-1"><span>King Lear</span></a></li>
+          <li><a href="#section-1"><span>Color</span></a></li>
           <li><a href="#section-2"><span>Deaths</span></a></li>
-          <li><a href="#section-3"><span>As You Like It</span></a></li>
+          <li><a href="#section-3"><span> Word Count </span></a></li>
+          <li><a href="#section-4"><span> Macbeth Lines </span></a></li>
 
         </ul>
       </nav>
@@ -118,9 +160,9 @@ h3
 
       <section id="section-1">
 
-<h1> Untitled </h1>
+  <h1> Colors Mentioned in Macbeth </h1>
 
-            <div class = "ct-chart" id = "chart2"> </div>
+            <div class = "ct-chart" id = "colorChart"> </div>
 
       </section>
 
@@ -134,17 +176,20 @@ h3
       </section>
 
       <section id="section-3">
+        <br>
+  <h1> Shakespeare Genres Average Word Count </h1>
 
-<div class = "ct-chart" id = "chart3"> </div>
+<div class = "ct-chart" id = "wordCount"> </div>
 
       </section>
 
       <section id="section-4">
+        <br>
+  <h1> Macbeth Characters by Line Number </h1>
 
-dragon
+<div class = "ct-chart" id = "macbethLines"> </div>
 
       </section>
-
 
     </main>
 
@@ -153,7 +198,7 @@ dragon
       <li><a href="https://danielfrancisolivieri.github.io/venture/" target="_blank" >Resume</a></li>
       <li><a href="https://danielfrancisolivieri.github.io/WhatWeMayBecome/" target="_blank" >What We May Become</a></li>
     <!--  <li><a href="https://danielfrancisolivieri.github.io/stalgia/">Stalgia</a></li> -->
-  </ul> -->
+  </ul>
 
     <script src="menuspy.js"></script>
     <script>
@@ -162,13 +207,31 @@ dragon
     </script>
 
     <script>
+
+/*
+tragedy average word count: 22279
+comedy avg word count: 18867
+history average word count: 26336
+
+Macbeth: 715
+Lady Macbeth: 259
+Malcolm: 211
+Macduff: 180
+Ross: 135
+Banquo: 113
+King: 70
+Lennox: 70
+
+*/
+
+
       // Initialize a Line chart in the container with the ID chart1
       new Chartist.Line('#chart3', {
         labels: ["one", "two", "three", "four"],
         series: [[100, 120, 180, 200]]
       });
 
-      // Initialize a Line chart in the container with the ID chart2
+      // deaths graph
       new Chartist.Bar('#deaths', {
         labels: ["Romeo and Juliet", "Hamlet", "Othello", "Macbeth", "Antony and Cleopatra", "Julius Caesar", "Lear", "Titus Andronicus", "Coriolanus", "Timon of Athens", "The Winter's Tale" ],
         series: [[6, 8, 4, 9, 5, 5, 8, 13, 1, 1, 1 ]]
@@ -176,68 +239,47 @@ dragon
       {
  seriesBarDistance: 52,
 
-}
+});
 
-    );
+// genre word count
+new Chartist.Bar('#wordCount', {
+  labels: ["Tragedy", "Comedy", "History" ],
+  series: [[22279, 18867, 26336 ]]
+},
+{
+seriesBarDistance: 52,
 
-    var options = {
+});
 
-        fullWidth: true,
-        width: '100%',
-        height: '100px',
+// Macbeth characters by word count
+new Chartist.Bar('#macbethLines', {
+  labels: ["Macbeth", "Lady Macbeth", "Malcolm", "Macduff", "Ross", "Banquo" ],
+  series: [[715, 259, 211, 180, 135, 113 ]]
+},
+{
+seriesBarDistance: 52,
 
-        axisX: {
+});
 
 
-        },
-
-        axisY: {
-
-          labelOffset: {
-      x: 0,
-      y: 0
-    }
+// color charts
+    new Chartist.Pie('#colorChart', {
+  series: [7, 2, 1, 1, 1],
+  colors:["#000000", "#84A518", "#111", "#E9CE2C"]
+  // black - 7, green - 2, white - 1, red -1, yellow - 1
+}, {
+  showLabel: true
+});
 
 /*
-            labelInterpolationFnc: function(value) {
-          		if (value == 0) {
-              	return 'X'
-              }
-              return String.fromCharCode(64 + value)
-        		}
 
-            */
-        }
-    };
+  Most quoted characters
+  most common words we use
+  blood
 
 
-
-// new graph
-      new Chartist.Line('#chart2', {
-    labels: ["Macbeth", "Lear", "Hamlet", "Much Ado"],
-    series: [
-      [5, 9, 7, 8, 5, 3, 5, 4]
-    ]
-  }, {
-    low: 0,
-    showArea: true
-  });
+*/
     </script>
 
-<!--
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-    <script src="js/jquery.event.move.js"></script>
-    <script src="js/jquery.twentytwenty.js"></script>
-    <script>
-    $(function(){
-      $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.5});
-      $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
-    });
-    </script>
-
-  -->
   </body>
 </html>
